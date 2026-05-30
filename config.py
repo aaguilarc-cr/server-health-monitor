@@ -1,7 +1,7 @@
 # Alert thresholds (percentage)
 CPU_THRESHOLD = 80       # Alert if CPU usage exceeds 80%
 MEMORY_THRESHOLD = 80    # Alert if memory usage exceeds 80%
-DISK_THRESHOLD = 85      # Alert if disk usage exceeds 85%
+DISK_THRESHOLD = 80      # Alert if disk usage exceeds 85%
 
 # Monitoring interval
 CHECK_INTERVAL_SECONDS = 60  # Check every 60 seconds
