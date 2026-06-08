@@ -1,5 +1,7 @@
 # 🖥️ Server Health Monitor
 
+![Build Status](https://github.com/aaguilarc-cr/server-health-monitor/actions/workflows/docker-build.yml/badge.svg)
+
 A Python-based monitoring bot that tracks CPU, memory, and disk usage on Linux servers and sends formatted HTML email alerts when thresholds are exceeded.
 
 Built as part of my SRE/DevOps learning journey — simulating real-world infrastructure monitoring patterns used by tools like Prometheus and Datadog.
