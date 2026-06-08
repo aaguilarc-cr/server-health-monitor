@@ -1,0 +1,34 @@
+name: Build and Test Docker Image
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t server-health-monitor .
+
+      - name: Verify image exists
+        run: docker images server-health-monitor
+
+      - name: Test container starts correctly
+        run: |
+          docker run -d \
+            -e EMAIL_SENDER=test@test.com \
+            -e EMAIL_PASSWORD=testpassword \
+            -e EMAIL_RECEIVER=test@test.com \
+            -e SERVER_NAME=ci-test \
+            --name monitor-test \
+            server-health-monitor
+          sleep 5
+          docker logs monitor-test
+          docker stop monitor-test
